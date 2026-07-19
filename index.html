@@ -26,10 +26,8 @@
 
   .shots { display: flex; gap: 16px; overflow-x: auto; padding: 32px 20px; width: fit-content; max-width: 100%; margin: 0 auto;
            scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
-  .shots figure { margin: 0; flex: 0 0 auto; scroll-snap-align: center; text-align: center; }
-  .shots img { height: 440px; border-radius: 24px; border: 1px solid rgba(128,128,128,.25);
-               box-shadow: 0 6px 20px rgba(20,40,10,.15); display: block; }
-  .shots figcaption { font-size: .9rem; color: #6b6b70; margin-top: 10px; }
+  .shots img { height: 440px; border-radius: 20px; scroll-snap-align: center; flex: 0 0 auto;
+               box-shadow: 0 6px 20px rgba(20,40,10,.15); }
 
   section.features { padding: 24px 0 8px; }
   h2 { font-size: 1.5rem; text-align: center; margin: 24px 0 4px; }
@@ -75,18 +73,10 @@
 </header>
 
 <div class="shots">
-  <figure>
-    <img src="assets/shot-train.jpg" alt="Ready to train — 99% readiness with a green recovery ring" loading="lazy">
-    <figcaption>Recovered? Go hard.</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/shot-easy.jpg" alt="Easy run only — 55% readiness with a yellow recovery ring" loading="lazy">
-    <figcaption>Mild stress? Keep it conversational.</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/shot-rest.jpg" alt="Rest day — 5% readiness with a red recovery ring" loading="lazy">
-    <figcaption>Run-down? Rest makes tomorrow count.</figcaption>
-  </figure>
+  <img src="assets/shot-1.jpg" alt="Go on green — 99% ready to train with a green recovery ring" loading="lazy">
+  <img src="assets/shot-2.jpg" alt="Rest on red — 5% rest day, recover instead of grinding" loading="lazy">
+  <img src="assets/shot-3.jpg" alt="Ease off on amber — 55% easy run only, keep it zone 1–2" loading="lazy">
+  <img src="assets/shot-4.jpg" alt="Built for runners — one clear verdict from your Apple Watch" loading="lazy">
 </div>
 
 <section class="features">
