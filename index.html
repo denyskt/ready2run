@@ -3,96 +3,149 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ready2Run — HRV Recovery</title>
+<title>Ready2Run — HRV Recovery for Runners</title>
+<meta name="description" content="Ready2Run turns the HRV your Apple Watch records overnight into one clear call every morning: train hard, take it easy, or rest. Free, on-device, private by design.">
+<meta property="og:title" content="Ready2Run: HRV Recovery">
+<meta property="og:description" content="One honest training-readiness call every morning, from the HRV your Apple Watch already records. Free, on-device.">
+<meta property="og:image" content="https://denyskt-hub.github.io/ready2run-pages/assets/icon.jpg">
 <style>
   :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
   body { font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; color: #1c1c1e; background: #fff; }
-  @media (prefers-color-scheme: dark) { body { color: #e6e6ea; background: #14161b; } a { color: #92e82a; } }
-  h1 { font-size: 1.9rem; margin: 0 0 4px; }
-  .tagline { color: #6b6b70; font-size: 1.05rem; margin: 0 0 1.5rem; }
-  h2 { font-size: 1.25rem; margin: 2.2rem 0 .5rem; padding-top: 1rem; border-top: 1px solid rgba(128,128,128,.2); }
-  h3 { font-size: 1rem; margin: 1.2rem 0 .3rem; }
-  .updated { color: #6b6b70; font-size: .9rem; }
-  .callout { border-left: 3px solid #92e82a; padding: 12px 16px; background: rgba(146,232,42,.08); border-radius: 8px; margin: 1.2rem 0; }
+         margin: 0; color: #1c1c1e; background: #fff; }
   a { color: #2e7d32; }
-  ul { padding-left: 1.2rem; }
-  footer { margin-top: 3rem; color: #6b6b70; font-size: .85rem; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  .hero { background: linear-gradient(180deg, #eefae0 0%, #f8fcf3 70%, #fff 100%); padding: 64px 0 40px; text-align: center; }
+  .hero img.icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 8px 24px rgba(30,80,10,.22); }
+  h1 { font-size: 2.2rem; line-height: 1.2; margin: 20px 0 8px; }
+  h1 .accent { color: #5aa314; }
+  .tagline { font-size: 1.15rem; color: #4b4b50; max-width: 580px; margin: 0 auto 24px; }
+  .soon { display: inline-block; font-weight: 600; font-size: .95rem; color: #3d5c14; background: rgba(146,232,42,.22);
+          border: 1px solid rgba(146,232,42,.6); border-radius: 999px; padding: 8px 18px; }
+
+  .shots { display: flex; gap: 16px; overflow-x: auto; padding: 32px 20px; width: fit-content; max-width: 100%; margin: 0 auto;
+           scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .shots figure { margin: 0; flex: 0 0 auto; scroll-snap-align: center; text-align: center; }
+  .shots img { height: 440px; border-radius: 24px; border: 1px solid rgba(128,128,128,.25);
+               box-shadow: 0 6px 20px rgba(20,40,10,.15); display: block; }
+  .shots figcaption { font-size: .9rem; color: #6b6b70; margin-top: 10px; }
+
+  section.features { padding: 24px 0 8px; }
+  h2 { font-size: 1.5rem; text-align: center; margin: 24px 0 4px; }
+  .subhead { text-align: center; color: #6b6b70; margin: 0 0 28px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card { border: 1px solid rgba(128,128,128,.18); border-radius: 14px; padding: 18px 20px; background: rgba(146,232,42,.05); }
+  .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .card .emoji { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+  .card p { margin: 0; color: #4b4b50; font-size: .95rem; }
+
+  .callout { max-width: 680px; margin: 32px auto 0; border-left: 3px solid #92e82a; padding: 12px 16px;
+             background: rgba(146,232,42,.08); border-radius: 8px; font-size: .95rem; }
+
+  .cta { text-align: center; padding: 40px 0 56px; }
+
+  footer { border-top: 1px solid rgba(128,128,128,.2); padding: 28px 0 48px; color: #6b6b70; font-size: .9rem; }
+  footer .links { margin-bottom: 8px; }
+  footer .links a { margin-right: 16px; }
+  footer .disclaimer { font-size: .8rem; margin-top: 12px; max-width: 680px; }
+
+  @media (prefers-color-scheme: dark) {
+    body { color: #e6e6ea; background: #14161b; }
+    a { color: #92e82a; }
+    .hero { background: linear-gradient(180deg, #1a2410 0%, #171d14 70%, #14161b 100%); }
+    .tagline, .card p { color: #a6a6ad; }
+    .card { background: rgba(146,232,42,.06); }
+    h1 .accent { color: #92e82a; }
+    .soon { color: #c8f78a; background: rgba(146,232,42,.12); border-color: rgba(146,232,42,.4); }
+  }
 </style>
 </head>
 <body>
 
-<h1>Ready2Run</h1>
-<p class="tagline">One clear training-readiness call every morning — train hard, take it easy, or rest — from the heart-rate variability (HRV) your Apple Watch already records overnight. Free, and private by design.</p>
+<header class="hero">
+  <div class="wrap">
+    <img class="icon" src="assets/icon.jpg" alt="Ready2Run app icon" width="96" height="96">
+    <h1>Know when to <span class="accent">push</span> —<br>and when to rest</h1>
+    <p class="tagline">Your Apple Watch already tracks the signal. Ready2Run turns overnight HRV into one honest call each morning: train hard, take it easy, or rest. Free, on-device.</p>
+    <!-- When the app goes live, replace the .soon pills (here and in .cta) with:
+         <a href="https://apps.apple.com/app/idXXXXXXXXXX"><img src="assets/appstore-badge.svg" alt="Download on the App Store" style="height:54px"></a> -->
+    <span class="soon">Coming soon to the App&nbsp;Store</span>
+  </div>
+</header>
 
-<h2>Support</h2>
-<p>Questions, feedback, or a bug to report? Get in touch:<br>
-<a href="mailto:denys.kotenko@icloud.com">denys.kotenko@icloud.com</a></p>
-<p><strong>A quick note:</strong> Ready2Run needs about a week of overnight Apple Watch wear to learn your personal baseline. Until then it shows a "Calibrating" state instead of guessing — that's expected, not a bug. HRV is also not available in the iOS Simulator, only on real hardware.</p>
-
-<h2>Privacy Policy</h2>
-<p class="updated">Last updated: 18 July 2026</p>
-
-<p>Ready2Run is built to be private: your health data and your readiness verdicts are processed on your iPhone and are never sent to us. Here is exactly what the app uses.</p>
-
-<div class="callout">
-<strong>The short version:</strong> Your HRV, heart-rate, and sleep data stay on your device. We can't see them, we don't store them on any server, and we never sell or share them. The only thing that leaves your phone is anonymous, aggregate app-usage and crash information that contains none of your health measurements.
+<div class="shots">
+  <figure>
+    <img src="assets/shot-train.jpg" alt="Ready to train — 99% readiness with a green recovery ring" loading="lazy">
+    <figcaption>Recovered? Go hard.</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/shot-easy.jpg" alt="Easy run only — 55% readiness with a yellow recovery ring" loading="lazy">
+    <figcaption>Mild stress? Keep it conversational.</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/shot-rest.jpg" alt="Rest day — 5% readiness with a red recovery ring" loading="lazy">
+    <figcaption>Run-down? Rest makes tomorrow count.</figcaption>
+  </figure>
 </div>
 
-<h3>1. Health &amp; Fitness Data (Apple HealthKit)</h3>
-<p>With your permission, Ready2Run reads the following from Apple HealthKit, <strong>read-only</strong>: heart-rate variability (SDNN), resting heart rate, and sleep analysis (time asleep and wake time). This is used for one purpose only — to calculate the readiness verdict, factors, and trend chart you see in the app.</p>
-<ul>
-  <li>Every calculation runs <strong>entirely on your iPhone</strong>. The data is <strong>never transmitted to Ready2Run, to any server, or to any third party</strong>.</li>
-  <li>Ready2Run <strong>never writes</strong> to HealthKit and never modifies your health records. (iOS still requires a "write" usage description even for read-only apps.)</li>
-  <li>Your health data and verdicts are never used for advertising and are never sold.</li>
-  <li>On your device the data lives in Apple HealthKit (which you control) and in a small local cache and shared app container so the app, its widgets, and its Apple Watch complications can display your latest verdict. It syncs to your paired Apple Watch over Apple's encrypted device-to-device connection.</li>
-</ul>
-<p>You can revoke access to any health data type at any time in <em>iOS Settings → Privacy &amp; Security → Health → Ready2Run</em>. Deleting the app removes its local cache from your device.</p>
+<section class="features">
+  <div class="wrap">
+    <h2>One clear verdict, every morning</h2>
+    <p class="subhead">No extra hardware. No black-box score you have to trust blindly.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="emoji">🟢</span>
+        <h3>Three-tier verdict</h3>
+        <p>Train hard, easy run, or rest — with a recovery ring you can read in a second, on your phone and your wrist.</p>
+      </div>
+      <div class="card">
+        <span class="emoji">💬</span>
+        <h3>Every call explains itself</h3>
+        <p>No mystery number. "HRV 12% below your 7-day normal, resting HR up" — you see the factors behind every verdict.</p>
+      </div>
+      <div class="card">
+        <span class="emoji">📈</span>
+        <h3>Your personal baseline</h3>
+        <p>A rolling 7-day baseline from your overnight HRV, blended with resting heart rate and last night's sleep — plus a 14-day trend chart with your normal-range band.</p>
+      </div>
+      <div class="card">
+        <span class="emoji">⌚</span>
+        <h3>On your wrist and Home Screen</h3>
+        <p>An Apple Watch app with the same recovery ring, watch-face complications, and Home and Lock Screen widgets.</p>
+      </div>
+      <div class="card">
+        <span class="emoji">🌅</span>
+        <h3>The verdict comes to you</h3>
+        <p>An optional morning notification carries the actual call — updated in the background after you wake, without opening the app.</p>
+      </div>
+      <div class="card">
+        <span class="emoji">🔒</span>
+        <h3>Private by design</h3>
+        <p>Every calculation runs on your iPhone. Your health data never leaves your device — see the <a href="privacy.html">privacy policy</a>.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>A note on calibration:</strong> Ready2Run learns your personal baseline from about a week of overnight Apple Watch wear before it gives a verdict. Until then it shows a "Calibrating" state instead of guessing — that's expected, not a bug.
+    </div>
+  </div>
+</section>
 
-<h3>2. Analytics &amp; Diagnostics</h3>
-<p>To fix bugs and understand which features are used, Ready2Run collects a small amount of <strong>anonymous, aggregate</strong> information through Google Firebase (Analytics and Crashlytics):</p>
-<ul>
-  <li>Usage events — e.g. app opened, onboarding completed, that a readiness verdict was shown (and its coarse category: train / easy / rest), and error codes.</li>
-  <li>Crash reports and basic performance/device information (e.g. OS version, device model, approximate region).</li>
-  <li>A Firebase installation identifier used to group these events.</li>
-</ul>
-<div class="callout">
-This analytics stream <strong>never includes your actual HRV, heart-rate, or sleep values</strong>. It is not linked to your name or identity (Ready2Run has no accounts), and it is <strong>not used to track you across other apps or websites</strong> — no advertising identifier (IDFA) is used.
+<div class="cta">
+  <span class="soon">Coming soon to the App&nbsp;Store</span>
 </div>
-<p>This processing is handled by Google. See <a href="https://firebase.google.com/support/privacy">Firebase Privacy &amp; Security</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 
-<h3>3. Information We Do NOT Collect</h3>
-<ul>
-  <li>No account, name, email address, or phone number.</li>
-  <li>No precise or background location.</li>
-  <li>No advertising identifier and no cross-app or cross-site tracking.</li>
-  <li>No transmission of your health measurements off your device — ever.</li>
-  <li>We do not sell, rent, or share your personal data.</li>
-</ul>
-
-<h3>4. Data Retention</h3>
-<p>Your health data stays in Apple HealthKit under your control. Ready2Run's on-device cache exists only while the app is installed and is removed when you delete it. Anonymous analytics and crash data are retained by Google according to their policies.</p>
-
-<h3>5. Children's Privacy</h3>
-<p>Ready2Run is not directed to children under 13, and we do not knowingly collect personal information from them.</p>
-
-<h3>6. Your Rights &amp; Choices</h3>
-<p>Grant or revoke HealthKit access at any time in iOS Settings. Delete the app to remove its local cache. Because analytics is anonymous and not tied to an identity, there is no personal profile of you for us to hold, access, or delete.</p>
-
-<h3>7. Security</h3>
-<p>Calculations run on your device, protected by iOS's built-in data-protection encryption. Because your health data never reaches a server we operate, there is no central store of it to be breached.</p>
-
-<h3>8. Changes to This Policy</h3>
-<p>We may update this policy as the app evolves. Material changes will appear here with a new "Last updated" date.</p>
-
-<h2>Terms of Service</h2>
-<p>Ready2Run is licensed under Apple's standard End User License Agreement (EULA):<br>
-<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">apple.com/legal/internet-services/itunes/dev/stdeula</a></p>
-
-<h2>Health &amp; Medical Disclaimer</h2>
-<p>Ready2Run provides general fitness and wellness information to help you plan training. <strong>It is not a medical device and does not provide medical advice.</strong> It does not diagnose, treat, cure, or prevent any disease or condition, and its readiness verdict is an estimate, not a clinical measurement. Always listen to your body, and consult a qualified healthcare professional before starting, changing, or stopping any exercise program, or if you have any concern about your health. Never disregard professional medical advice because of something in this app.</p>
-
-<footer>© 2026 Denys Kotenko · Ready2Run</footer>
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service</a>
+      <a href="mailto:denys.kotenko@icloud.com">Support</a>
+    </div>
+    © 2026 Denys Kotenko · Ready2Run
+    <p class="disclaimer">Training guidance, not medical advice. Ready2Run is not a medical device and does not diagnose, treat, or prevent any condition. Always listen to your body and consult a professional for health concerns.</p>
+  </div>
+</footer>
 
 </body>
 </html>
