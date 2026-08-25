@@ -8,6 +8,7 @@
 <meta property="og:title" content="Ready2Run: HRV Recovery">
 <meta property="og:description" content="One honest training-readiness call every morning, from the HRV your Apple Watch already records. On-device and private.">
 <meta property="og:image" content="https://denyskt-hub.github.io/ready2run-pages/assets/icon.jpg">
+<meta name="apple-itunes-app" content="app-id=6789868911">
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
@@ -21,8 +22,9 @@
   h1 { font-size: 2.2rem; line-height: 1.2; margin: 20px 0 8px; }
   h1 .accent { color: #5aa314; }
   .tagline { font-size: 1.15rem; color: #4b4b50; max-width: 580px; margin: 0 auto 24px; }
-  .soon { display: inline-block; font-weight: 600; font-size: .95rem; color: #3d5c14; background: rgba(146,232,42,.22);
-          border: 1px solid rgba(146,232,42,.6); border-radius: 999px; padding: 8px 18px; }
+  .badge { display: inline-block; line-height: 0; }
+  .badge img { height: 54px; width: auto; }
+  .requires { color: #6b6b70; font-size: .85rem; margin: 14px 0 0; }
 
   .shots { display: flex; gap: 16px; overflow-x: auto; padding: 32px 20px; width: fit-content; max-width: 100%; margin: 0 auto;
            scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
@@ -55,7 +57,7 @@
     .tagline, .card p { color: #a6a6ad; }
     .card { background: rgba(146,232,42,.06); }
     h1 .accent { color: #92e82a; }
-    .soon { color: #c8f78a; background: rgba(146,232,42,.12); border-color: rgba(146,232,42,.4); }
+    .requires { color: #a6a6ad; }
   }
 </style>
 </head>
@@ -66,9 +68,8 @@
     <img class="icon" src="assets/icon.jpg" alt="Ready2Run app icon" width="96" height="96">
     <h1>Know when to <span class="accent">push</span> —<br>and when to rest</h1>
     <p class="tagline">Your Apple Watch already tracks the signal. Ready2Run turns overnight HRV into one honest call each morning: train hard, take it easy, or rest. On-device and private.</p>
-    <!-- When the app goes live, replace the .soon pills (here and in .cta) with:
-         <a href="https://apps.apple.com/app/idXXXXXXXXXX"><img src="assets/appstore-badge.svg" alt="Download on the App Store" style="height:54px"></a> -->
-    <span class="soon">Coming soon to the App&nbsp;Store</span>
+    <a class="badge" href="https://apps.apple.com/app/id6789868911"><img src="assets/appstore-badge.svg" alt="Download Ready2Run on the App Store" width="162" height="54"></a>
+    <p class="requires">iPhone and Apple&nbsp;Watch · iOS 17 and later</p>
   </div>
 </header>
 
@@ -122,7 +123,7 @@
 </section>
 
 <div class="cta">
-  <span class="soon">Coming soon to the App&nbsp;Store</span>
+  <a class="badge" href="https://apps.apple.com/app/id6789868911"><img src="assets/appstore-badge.svg" alt="Download Ready2Run on the App Store" width="162" height="54"></a>
 </div>
 
 <footer>
